@@ -9,7 +9,6 @@ import './styles/_reset.css';
 
 // import repos from './data/repos';
 
-
 const App = () => {
   // value of the search field, empty to start with
   const [search, setSearch] = useState('');
@@ -25,11 +24,10 @@ const App = () => {
   const [repos, setRepos] = useState([]);
   const [nbRepos, setNbRepos] = useState('');
 
-  // const [total, setTotal] = useState(0);
-  // indique s'il faut afficher le message d'erreur
+  // Indicates whether to display the error message
   const [displayError, setDisplayError] = useState(false);
 
-  // By habit I used Axios, but I should have used the fetch method because I didn't need a library
+  // By habit I used Axios
   const reSearch = () => {
     // console.log('I test the search : fulll');
     axios.get(`https://api.github.com/search/users?q=${search}`)
@@ -38,7 +36,7 @@ const App = () => {
         setRepos(response.data.items);
         setNbRepos(response.data.total_count);
 
-        // on enlève la précédente erreur éventuelle
+        // Remove any previous error
         setDisplayError(false);
       })
       .catch((error) => {

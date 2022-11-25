@@ -30,7 +30,6 @@ Card.propTypes = {
     avatar_url: PropTypes.string.isRequired,
     id: PropTypes.number.isRequired,
     login: PropTypes.string.isRequired,
-
 };
 
 
